@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.VFX;
 
 public class WeaponControl : MonoBehaviour
 {
-    public GameObject Bullet;
-    public GameObject BulletSpawn;
+    [SerializeField]private GameObject Bullet;
+    [SerializeField]private GameObject BulletSpawn;
+    [SerializeField]private GameObject MuzzleFlashEffect;
+    [SerializeField]private Animation MuzzleLight;
 
-    public GameObject MuzzleFlashEffect;
-    public Animation MuzzleLight;
+    [SerializeField]private bool isAutomatic;
+
+    [SerializeField]private int magazineSize;
+
+    [SerializeField]private int maxAmmo;
 
     public AudioClip ShootSound;
     [Range(0.1f,0.5f)]

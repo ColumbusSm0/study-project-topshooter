@@ -18,8 +18,8 @@ MonoBehaviour:
   MuzzleFlashEffect: {fileID: 5781005560333850566, guid: 8e129d5a94f4b844fa7faa0992f18b48, type: 3}
   MuzzleLight: {fileID: 6493691976686031549, guid: 04f6a92b92017cf458469789b53e3c71, type: 3}
   isAutomatic: 1
-  timer: 0.8154057
-  delayBetweenShots: 0.1
-  magazineSize: 7
+  timer: 0.76951784
+  delayBetweenShots: 0.12
+  magazineSize: 26
   maxAmmo: 150
   ShootSound: {fileID: 8300000, guid: cafda5af520a8bc46aedad58a9d378d4, type: 3}

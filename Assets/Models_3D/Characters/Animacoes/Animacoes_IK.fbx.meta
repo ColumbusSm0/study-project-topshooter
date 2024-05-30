@@ -741,12 +741,216 @@ ModelImporter:
       keepOriginalPositionXZ: 1
       heightFromFeet: 1
       mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      bodyMask: 01000000000000000000000000000000000000000100000001000000010000000100000000000000000000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 0
-      maskSource: {instanceID: 0}
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt/Hat_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt/Hat_jnt1
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt/LowerArm_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt/LowerArm_Left_jnt/Hand_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt/LowerArm_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt/LowerArm_Right_jnt/Hand_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt/Foot_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt/Foot_Left_jnt/Foot_Left_jnt1
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt/Foot_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt/Foot_Right_jnt/Foot_Right_jnt1
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 730da84ecc282d94988b8c6a9dddb961, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Anim_Recoil
+      takeName: Take 001
+      internalID: -998496362607748373
+      firstFrame: 7
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000000000000000000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+      curves: []
+      events:
+      - time: 0.5548733
+        functionName: RecoilFinished
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt/Hat_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt/Hat_jnt1
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt/LowerArm_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt/LowerArm_Left_jnt/Hand_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt/LowerArm_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt/LowerArm_Right_jnt/Hand_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt/Foot_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt/Foot_Left_jnt/Foot_Left_jnt1
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt/Foot_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt/Foot_Right_jnt/Foot_Right_jnt1
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 730da84ecc282d94988b8c6a9dddb961, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Anim_Reload
+      takeName: Take 001
+      internalID: 3060872287085348379
+      firstFrame: 22
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000000000000000000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+      curves: []
+      events:
+      - time: 0.99629635
+        functionName: ReloadFinished
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt/Hat_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/Head_jnt/Hat_jnt1
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt/LowerArm_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Left_jnt/LowerArm_Left_jnt/Hand_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt/LowerArm_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/Body_jnt/Spine_jnt/UpperArm_Right_jnt/LowerArm_Right_jnt/Hand_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt/Foot_Left_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Left_jnt/LowerLeg_Left_jnt/Foot_Left_jnt/Foot_Left_jnt1
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt/Foot_Right_jnt
+        weight: 1
+      - path: Root_jnt/Hips_jnt/UpperLeg_Right_jnt/LowerLeg_Right_jnt/Foot_Right_jnt/Foot_Right_jnt1
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 730da84ecc282d94988b8c6a9dddb961, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:

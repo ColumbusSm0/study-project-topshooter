@@ -671,7 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   ZombieKill: {fileID: 8300000, guid: 3a9b3b6e045d1dc4e948f8f64cd7cb71, type: 3}
-  myEnemyStats: {fileID: 0}
+  myEnemyStats: {fileID: 1433951673213636882}
 --- !u!54 &3340161708021356675
 Rigidbody:
   m_ObjectHideFlags: 0

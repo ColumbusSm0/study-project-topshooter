@@ -74,6 +74,7 @@ public class EnemyControl : MonoBehaviour, IKillable
     void HitPlayer ()
     {
         playerControl.DealDamage(20);
+        Debug.Log("HitPlayer on enemy Control Trigered");
     }
 
     void SetRandomZombieSkin()

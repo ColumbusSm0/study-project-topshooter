@@ -5062,7 +5062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8743465202863768701, guid: 77da4dfa41b87e945a605fd12957b823, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5578,6 +5578,10 @@ PrefabInstance:
     - target: {fileID: 2146335866281697840, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146335866281697840, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2146335866281697854, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: m_RootOrder
@@ -7369,6 +7373,10 @@ PrefabInstance:
     - target: {fileID: 2146335866281697840, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146335866281697840, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2146335866281697854, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: m_RootOrder
@@ -12469,6 +12477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2146335866281697840, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2146335866281697854, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -12857,7 +12869,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090033772}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 42f0713429f4fce4fa19350359dba0cb, type: 3}
@@ -13775,6 +13787,10 @@ PrefabInstance:
     - target: {fileID: 2146335866281697840, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146335866281697840, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2146335866281697854, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: m_RootOrder

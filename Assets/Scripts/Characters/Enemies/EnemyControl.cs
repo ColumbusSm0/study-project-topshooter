@@ -12,7 +12,7 @@ public class EnemyControl : MonoBehaviour, IKillable
     private Vector3 randomPos;
     private Vector3 direction;
     private CharacterMovement enemyMovement;
-    private CharacterAnimationControl enemyAnimationController;
+    private EnemyAnimationControl enemyAnimationController;
     public CharacterStats myEnemyStats;
 
     private float idleTimerCount;
@@ -25,6 +25,12 @@ public class EnemyControl : MonoBehaviour, IKillable
     public static event Action<Animator> DamageEvent;
 
 
+    #region DebugFunctions
+    [Header("Debug Helpers")]
+    public bool CanChase;
+    #endregion
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +39,7 @@ public class EnemyControl : MonoBehaviour, IKillable
 
         enemyMovement = GetComponent<CharacterMovement>();
 
-        enemyAnimationController = GetComponent<CharacterAnimationControl>();
+        enemyAnimationController = GetComponent<EnemyAnimationControl>();
         myEnemyAnimator = GetComponent<Animator>();
 
         myEnemyStats = GetComponent<CharacterStats>();
@@ -62,7 +68,7 @@ public class EnemyControl : MonoBehaviour, IKillable
             {
                 roamingMove();
             }
-            else if (distancia > 2.5)
+            else if (distancia > 2.5 && CanChase)
             {
                 chasePlayer();
             }
@@ -94,9 +100,17 @@ public class EnemyControl : MonoBehaviour, IKillable
         }
         else
         {
+
+            //  Vector3 DamageDirection = this.transform.position - Player.transform.position;
+            Vector3 enemyLookDirection = this.transform.forward;
+            Vector3 playerRelativeDirection = (Player.transform.position - this.transform.position).normalized;
+            float angle = Vector3.Angle(enemyLookDirection, playerRelativeDirection);
+            Debug.Log(angle);
+
             DamageEvent?.Invoke(myEnemyAnimator);
             isReactingToDamage = true;
         }
+           
     }
 
     public void HitFinished()
@@ -153,6 +167,7 @@ public class EnemyControl : MonoBehaviour, IKillable
         enemyMovement.Movement(direction, myEnemyStats.Velocity);
 
         enemyAnimationController.AttackAnim(false);
+        
     }
 
     Vector3 RamdomizePosition()

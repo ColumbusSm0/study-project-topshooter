@@ -9,20 +9,30 @@ public class CharacterAnimationControl : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GetComponent<PlayerControl>() != null)
+        if (GetComponent<WeaponControl>() != null)
         {
             WeaponControl.ReloadEvent += ReloadAnim;
             WeaponControl.ShootEvent += ShootAnim;
+        }
+
+        if (GetComponent<EnemyControl>() != null)
+        {
+            EnemyControl.DamageEvent += ZombieDamageAnim;
         }
 
     }
 
     private void OnDisable()
     {
-        if (GetComponent<PlayerControl>() != null)
+        if (GetComponent<WeaponControl>() != null)
         {
             WeaponControl.ReloadEvent -= ReloadAnim;
             WeaponControl.ShootEvent -= ShootAnim;
+        }
+
+        if (GetComponent<EnemyControl>() != null)
+        {
+            EnemyControl.DamageEvent -= ZombieDamageAnim;
         }
     }
 
@@ -52,12 +62,17 @@ public class CharacterAnimationControl : MonoBehaviour
         myAnimator.SetBool("Reload", reload);
     }
 
+    public void ZombieDamageAnim()
+    {
+        myAnimator.Play("Zombie_Hit", -1, 0f);
+    }
+
     public void DeathAnim(bool state)
     {
+        EnemyControl.DamageEvent -= ZombieDamageAnim;
         int randomInt = Random.Range(0, 2);
         myAnimator.SetInteger("MortoIndex", randomInt);
         myAnimator.SetBool("Morto", state);
-
     }
 
     void RecoilFinished()

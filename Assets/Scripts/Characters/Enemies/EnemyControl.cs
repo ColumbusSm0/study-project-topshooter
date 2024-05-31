@@ -19,8 +19,10 @@ public class EnemyControl : MonoBehaviour, IKillable
     private float randomPosTimer = 4;
     private int randomPosMagnitudeMultiplier = 10;
     private bool isAlive = true;
+    private bool isReactingToDamage;
 
     public event Action<GameObject> ZombieDied;
+    public static event Action DamageEvent;
 
 
     // Start is called before the first frame update
@@ -43,26 +45,26 @@ public class EnemyControl : MonoBehaviour, IKillable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()
     {
         float distancia = Vector3.Distance(transform.position, Player.transform.position);
 
-        if(isAlive)
+        if (isAlive && !isReactingToDamage)
         {
             enemyMovement.Rotation(direction);
 
             enemyAnimationController.MovementAnim(direction.magnitude);
-            
-            if(distancia > 15)
+
+            if (distancia > 15)
             {
                 roamingMove();
             }
-            else if(distancia > 2.5)
+            else if (distancia > 2.5)
             {
-                chasePlayer();  
+                chasePlayer();
             }
             else
             {
@@ -71,7 +73,7 @@ public class EnemyControl : MonoBehaviour, IKillable
         }
     }
 
-    void HitPlayer ()
+    void HitPlayer()
     {
         playerControl.DealDamage(20);
         Debug.Log("HitPlayer on enemy Control Trigered");
@@ -79,22 +81,32 @@ public class EnemyControl : MonoBehaviour, IKillable
 
     void SetRandomZombieSkin()
     {
-        int EnemyRandomizer = UnityEngine.Random.Range(1,28);
+        int EnemyRandomizer = UnityEngine.Random.Range(1, 28);
         transform.GetChild(EnemyRandomizer).gameObject.SetActive(true);
     }
 
     public void DealDamage(int dano)
     {
         myEnemyStats.Life -= dano;
-        if(myEnemyStats.Life <= 0)
+        if (myEnemyStats.Life <= 0)
         {
             Die();
         }
+        else
+        {
+            DamageEvent?.Invoke();
+            isReactingToDamage = true;
+        }
+    }
+
+    public void HitFinished()
+    {
+        isReactingToDamage = false;
     }
     public void Heal(int cura)
     {
         myEnemyStats.Life += cura;
-        if(myEnemyStats.Life >= myEnemyStats.InitialLife)
+        if (myEnemyStats.Life >= myEnemyStats.InitialLife)
         {
             myEnemyStats.Life = myEnemyStats.InitialLife;
         }
@@ -112,12 +124,12 @@ public class EnemyControl : MonoBehaviour, IKillable
         ZombieDied?.Invoke(this.gameObject);
     }
 
-    void roamingMove ()
+    void roamingMove()
     {
         myEnemyStats.Velocity = 4;
         idleTimerCount -= Time.deltaTime;
 
-        if(idleTimerCount <= 0)
+        if (idleTimerCount <= 0)
         {
             randomPos = RamdomizePosition();
             idleTimerCount += randomPosTimer;
@@ -125,7 +137,7 @@ public class EnemyControl : MonoBehaviour, IKillable
 
         bool hasReached = Vector3.Distance(transform.position, randomPos) <= 0.07;
 
-        if(hasReached == false)
+        if (hasReached == false)
         {
             direction = randomPos - transform.position;
             enemyMovement.Movement(direction, myEnemyStats.Velocity);
@@ -138,12 +150,12 @@ public class EnemyControl : MonoBehaviour, IKillable
 
         direction = Player.transform.position - transform.position;
 
-        enemyMovement.Movement(direction,myEnemyStats.Velocity);
+        enemyMovement.Movement(direction, myEnemyStats.Velocity);
 
         enemyAnimationController.AttackAnim(false);
     }
 
-    Vector3 RamdomizePosition ()
+    Vector3 RamdomizePosition()
     {
         Vector3 position = UnityEngine.Random.insideUnitSphere * randomPosMagnitudeMultiplier;
         position += transform.position;

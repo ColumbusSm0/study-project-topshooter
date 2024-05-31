@@ -7,7 +7,7 @@ public class EnemyControl : MonoBehaviour, IKillable
 {
     public GameObject Player;
     private PlayerControl playerControl;
-    private Animator enemyAnim;
+    private Animator myEnemyAnimator;
     public AudioClip ZombieKill;
     private Vector3 randomPos;
     private Vector3 direction;
@@ -22,7 +22,7 @@ public class EnemyControl : MonoBehaviour, IKillable
     private bool isReactingToDamage;
 
     public event Action<GameObject> ZombieDied;
-    public static event Action DamageEvent;
+    public static event Action<Animator> DamageEvent;
 
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class EnemyControl : MonoBehaviour, IKillable
         enemyMovement = GetComponent<CharacterMovement>();
 
         enemyAnimationController = GetComponent<CharacterAnimationControl>();
-        enemyAnim = GetComponent<Animator>();
+        myEnemyAnimator = GetComponent<Animator>();
 
         myEnemyStats = GetComponent<CharacterStats>();
 
@@ -94,7 +94,7 @@ public class EnemyControl : MonoBehaviour, IKillable
         }
         else
         {
-            DamageEvent?.Invoke();
+            DamageEvent?.Invoke(myEnemyAnimator);
             isReactingToDamage = true;
         }
     }

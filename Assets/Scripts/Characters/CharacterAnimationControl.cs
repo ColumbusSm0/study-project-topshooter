@@ -62,9 +62,9 @@ public class CharacterAnimationControl : MonoBehaviour
         myAnimator.SetBool("Reload", reload);
     }
 
-    public void ZombieDamageAnim()
+    public void ZombieDamageAnim(Animator myLocalAnimator)
     {
-        myAnimator.Play("Zombie_Hit", -1, 0f);
+        myLocalAnimator.Play("Zombie_Hit", -1, 0f);
     }
 
     public void DeathAnim(bool state)

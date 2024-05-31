@@ -14117,6 +14117,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8220187700110808571}
     - target: {fileID: 8615289121436704081, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}
+      propertyPath: pitchMultplier
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615289121436704081, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}
       propertyPath: MuzzleFlashEffect
       value: 
       objectReference: {fileID: 0}

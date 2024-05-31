@@ -746,7 +746,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Zombie_Hit
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1898368128542211878}
@@ -757,14 +757,14 @@ AnimatorState:
   - {fileID: -6298361616022864952}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
+  m_IKOnFeet: 1
   m_WriteDefaultValues: 1
   m_Mirror: 0
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 078db2f3453b5c240a948fd912c321d5, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 2799334cb3dfff342b698baed7ae67fd, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

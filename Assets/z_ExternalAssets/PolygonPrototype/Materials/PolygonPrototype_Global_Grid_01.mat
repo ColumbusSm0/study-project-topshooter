@@ -41,15 +41,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - OverlayAmount: 0.5
-    - _Falloff: 50
+    - OverlayAmount: 0.86
+    - _Falloff: 60
     - _GridScale: 1
     - _OverlayAmount: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - __dirty: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.724138, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 0.8766641, b: 0.5235849, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4279384209043432398
 MonoBehaviour:

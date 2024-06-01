@@ -5937,6 +5937,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 3431880188164462253, guid: a034725dcaa03c943bde62fd12a86997, type: 3}
+    - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: TimerGoal
       value: 0.8
       objectReference: {fileID: 0}
@@ -7761,6 +7765,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 3431880188164462253, guid: a034725dcaa03c943bde62fd12a86997, type: 3}
     - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: TimerGoal
       value: 0.8
@@ -13286,6 +13294,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 3431880188164462253, guid: a034725dcaa03c943bde62fd12a86997, type: 3}
+    - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: TimerGoal
       value: 0.8
       objectReference: {fileID: 0}
@@ -14664,6 +14676,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 3431880188164462253, guid: a034725dcaa03c943bde62fd12a86997, type: 3}
     - target: {fileID: 2146335866281697855, guid: e7edd389dfa9e3746a7a3cf30cf24569, type: 3}
       propertyPath: TimerGoal
       value: 0.8

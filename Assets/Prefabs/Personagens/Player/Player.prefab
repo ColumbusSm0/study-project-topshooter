@@ -251,9 +251,9 @@ GameObject:
   - component: {fileID: 5251103202767394513}
   - component: {fileID: 250973617475506510}
   - component: {fileID: 5773962776392438534}
+  - component: {fileID: 7133640920273472674}
   - component: {fileID: 8615289121436704081}
   - component: {fileID: 3573889533789577102}
-  - component: {fileID: 772615408280898189}
   - component: {fileID: 3999133823435325832}
   m_Layer: 0
   m_Name: Player
@@ -392,6 +392,18 @@ MonoBehaviour:
   ScriptHudControl: {fileID: 0}
   DamageSound: {fileID: 8300000, guid: 5835d547e663cec49a38305ac24af7ea, type: 3}
   myPlayerStats: {fileID: 0}
+--- !u!114 &7133640920273472674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431366382363084347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dd681a313df2c44b7beacc1f69171c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8615289121436704081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,16 +416,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4edcd2cebc8464abf799159bacbed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 5774084666357793013, guid: c825ba1716a7d9e40a049563a4f4f952, type: 3}
   BulletSpawn: {fileID: 6858751678561794573}
-  MuzzleFlashEffect: {fileID: 0}
-  MuzzleLight: {fileID: 0}
-  gun: {fileID: 11400000, guid: 1c00cf3859fb33a438e09dc1519bf2ca, type: 2}
-  isAutomatic: 1
-  magazineSize: 0
-  maxAmmo: 0
-  delayBetweenShots: 0.2
-  ShootSound: {fileID: 8300000, guid: cafda5af520a8bc46aedad58a9d378d4, type: 3}
+  GunHolder: {fileID: 0}
+  GunInstance: {fileID: 0}
+  InstanceMuzzleFlashEffect: {fileID: 0}
+  InstanceMuzzleLight: {fileID: 0}
+  GunSO: {fileID: 0}
+  AnimControl: {fileID: 0}
+  CurrentMagazineBullets: 0
+  CurrentAmmo: 100
+  WeaponAudioSource: {fileID: 0}
   pitchMultplier: 0.14
 --- !u!114 &3573889533789577102
 MonoBehaviour:
@@ -425,18 +437,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dbbf4cca30858e42829ee7be197964e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &772615408280898189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431366382363084347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99c9d071a799844ba0b72d32fbe116b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3999133823435325832

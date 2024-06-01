@@ -11,6 +11,7 @@ public class EnemyControl : MonoBehaviour, IKillable
     public AudioClip ZombieKill;
     private Vector3 randomPos;
     private Vector3 direction;
+    [SerializeField] private float ChaseRadius = 10;
     private CharacterMovement enemyMovement;
     private EnemyAnimationControl enemyAnimationController;
     public CharacterStats myEnemyStats;
@@ -22,12 +23,13 @@ public class EnemyControl : MonoBehaviour, IKillable
     private bool isReactingToDamage;
 
     public event Action<GameObject> ZombieDied;
-    public static event Action<Animator> DamageEvent;
+    public static event Action<Animator, Vector2> DamageEvent;
 
 
     #region DebugFunctions
     [Header("Debug Helpers")]
     public bool CanChase;
+    public bool ShouldDrawGizmos;
     #endregion
 
 
@@ -64,18 +66,29 @@ public class EnemyControl : MonoBehaviour, IKillable
 
             enemyAnimationController.MovementAnim(direction.magnitude);
 
-            if (distancia > 15)
+            if (CanChase)
             {
-                roamingMove();
+                if (distancia < 2.5)
+                {
+                    enemyAnimationController.AttackAnim(true);
+                }
+                else if (distancia < ChaseRadius)
+                {
+                    chasePlayer();
+                }
+                else
+                {
+                    roamingMove();
+                }
             }
-            else if (distancia > 2.5 && CanChase)
-            {
-                chasePlayer();
-            }
-            else
-            {
-                enemyAnimationController.AttackAnim(true);
-            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (ShouldDrawGizmos)
+        {
+            Gizmos.DrawWireSphere(this.transform.position, ChaseRadius);
         }
     }
 
@@ -100,23 +113,25 @@ public class EnemyControl : MonoBehaviour, IKillable
         }
         else
         {
-
-            //  Vector3 DamageDirection = this.transform.position - Player.transform.position;
-            Vector3 enemyLookDirection = this.transform.forward;
-            Vector3 playerRelativeDirection = (Player.transform.position - this.transform.position).normalized;
-            float angle = Vector3.Angle(enemyLookDirection, playerRelativeDirection);
-            Debug.Log(angle);
-
-            DamageEvent?.Invoke(myEnemyAnimator);
             isReactingToDamage = true;
+            Vector3 playerDirection = Player.transform.position - this.transform.position;
+
+            Vector3 localDirectionToBullet = this.transform.InverseTransformDirection(playerDirection);
+
+            Vector2 direction2D = new Vector2(localDirectionToBullet.x, localDirectionToBullet.z).normalized;
+
+
+            DamageEvent?.Invoke(myEnemyAnimator, direction2D);
+
         }
-           
+
     }
 
     public void HitFinished()
     {
         isReactingToDamage = false;
     }
+
     public void Heal(int cura)
     {
         myEnemyStats.Life += cura;
@@ -167,7 +182,7 @@ public class EnemyControl : MonoBehaviour, IKillable
         enemyMovement.Movement(direction, myEnemyStats.Velocity);
 
         enemyAnimationController.AttackAnim(false);
-        
+
     }
 
     Vector3 RamdomizePosition()

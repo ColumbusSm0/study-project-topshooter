@@ -14370,6 +14370,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 786111425}
     - target: {fileID: 8615289121436704081, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}
+      propertyPath: BulletSpawn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615289121436704081, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}
       propertyPath: MuzzleLight
       value: 
       objectReference: {fileID: 0}
@@ -14398,7 +14402,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6858751678561794573, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1431366382363084347, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}

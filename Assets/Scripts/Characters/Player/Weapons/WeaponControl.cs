@@ -63,6 +63,11 @@ public class WeaponControl : MonoBehaviour
 
     void TryToShoot()
     {
+        if(BulletSpawn == null)
+        {
+            BulletSpawn = GameObject.FindGameObjectWithTag(Tags.BulletSpawn);
+        }
+
         if (CurrentMagazineBullets > 0)
         {
             GunSO.timer = 0;

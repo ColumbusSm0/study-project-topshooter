@@ -11,4 +11,6 @@ public class Tags : MonoBehaviour
 
    public const string Enemy = "Enemy";
 
+   public const string BulletSpawn = "BulletSpawn";
+
 }

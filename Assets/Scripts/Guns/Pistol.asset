@@ -21,7 +21,7 @@ MonoBehaviour:
   timer: 0
   DelayBetweenShots: 0.1
   SpeedMultiplierRecoilAnimation: 5
-  magazineSize: 100
+  magazineSize: 6
   ReloadTime: 0
-  maxAmmo: 150
+  maxAmmo: 250
   ShootSound: {fileID: 8300000, guid: cafda5af520a8bc46aedad58a9d378d4, type: 3}

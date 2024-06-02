@@ -19,8 +19,8 @@ MonoBehaviour:
   MuzzleLight: {fileID: 6493691976686031549, guid: 04f6a92b92017cf458469789b53e3c71, type: 3}
   isAutomatic: 0
   timer: 0
-  DelayBetweenShots: 0.1
-  SpeedMultiplierRecoilAnimation: 5
+  DelayBetweenShots: 0.388
+  SpeedMultiplierRecoilAnimation: 2.2727273
   magazineSize: 6
   ReloadTime: 0
   maxAmmo: 250

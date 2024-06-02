@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class HUDControl : MonoBehaviour
 {
     private PlayerControl scriptPlayerControl;
     public  Slider SliderPlayerLife;
+
+    public TextMeshProUGUI MagazineText;
+    public TextMeshProUGUI AmmoText;
 
     public GameObject GameOverPanel;
 
@@ -27,6 +31,18 @@ public class HUDControl : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    private void OnEnable()
+    {
+        WeaponControl.ShootHUDEvent += UpdateAmmoValues;
+        WeaponControl.ReloadFinishedEvent += UpdateAmmoValues;
+    }
+
+    private void OnDisable()
+    {
+        WeaponControl.ShootHUDEvent -= UpdateAmmoValues;
+        WeaponControl.ReloadFinishedEvent -= UpdateAmmoValues;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +56,12 @@ public class HUDControl : MonoBehaviour
         startValue = SliderPlayerLife.value; // remember amount at animation start
         timer = 0f; // reset timer.
         
+    }
+    public void UpdateAmmoValues(int magazine, int ammo)
+    {
+        Debug.Log("UpdateText");
+        MagazineText.SetText(magazine.ToString());
+        AmmoText.SetText("/ " + ammo.ToString());
     }
 
     public void GameOver()

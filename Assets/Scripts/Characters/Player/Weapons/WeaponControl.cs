@@ -30,7 +30,9 @@ public class WeaponControl : MonoBehaviour
     // [Header("Actions and Events")]
     #region Actions and Events
     public static event Action<bool> ReloadEvent;
-    public static event Action<bool, float> ShootEvent;
+    public static event Action<int,int> ReloadFinishedEvent;
+    public static event Action<int,int> ShootHUDEvent;
+    public static event Action<GunScriptableObject> ShootAnimEvent;
 
     #endregion
 
@@ -72,8 +74,8 @@ public class WeaponControl : MonoBehaviour
         {
             GunSO.timer = 0;
 
-            ShootEvent?.Invoke(true,GunSO.SpeedMultiplierRecoilAnimation);
-
+            ShootAnimEvent?.Invoke(GunSO);
+            
             Instantiate(GunSO.Bullet, BulletSpawn1.transform.position, BulletSpawn1.transform.rotation);
 
             WeaponAudioSource.pitch = UnityEngine.Random.Range(1 - pitchMultplier, 1 + pitchMultplier);
@@ -83,6 +85,8 @@ public class WeaponControl : MonoBehaviour
             InstanceMuzzleFlashEffect.Play();
 
             CurrentMagazineBullets -= 1;
+
+            ShootHUDEvent?.Invoke(CurrentMagazineBullets,CurrentAmmo);
         } else {
 
             OnReload();
@@ -120,7 +124,7 @@ public class WeaponControl : MonoBehaviour
             {
                 CurrentMagazineBullets += bulletsToReload;
                 CurrentAmmo -= bulletsToReload;
-                
+
                 Debug.Log("Reloaded");
 
             }
@@ -130,6 +134,8 @@ public class WeaponControl : MonoBehaviour
                 CurrentAmmo = 0;
                 Debug.Log("Reloaded and out of ammo");
             }
+
+            ReloadFinishedEvent?.Invoke(CurrentMagazineBullets, CurrentAmmo);
     }
 
     //Called by Animavion Event inside Reload Animation
@@ -138,10 +144,10 @@ public class WeaponControl : MonoBehaviour
         CompleteReload();
     }
     //Called by Animavion Event inside Recoil Animation
-    void RecoilFinished()
-    {
-        ShootEvent?.Invoke(false,GunSO.SpeedMultiplierRecoilAnimation);
-    }
+    // void RecoilFinished()
+    // {
+    //     ShootAnimEvent?.Invoke(GunSO);
+    // }
 
     public GameObject UpdateEquippedWeapon(GunScriptableObject newGun)
     {
@@ -154,7 +160,9 @@ public class WeaponControl : MonoBehaviour
         GameObject GunInstance = Instantiate(newGun.GunPrefab,GunHolder.transform.position,GunHolder.transform.rotation,GunHolder.transform);
         SetGunStats();
         SetGunEffects(GunInstance);
+        ReloadFinishedEvent?.Invoke(CurrentMagazineBullets, CurrentAmmo);
         return GunInstance;
+        
 
     }
 

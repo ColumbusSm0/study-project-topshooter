@@ -7,19 +7,19 @@ public class PlayerAnimationControl : CharacterAnimationControl
     private void OnEnable()
     {
         WeaponControl.ReloadEvent += ReloadAnim;
-        WeaponControl.ShootEvent += ShootAnim;
+        WeaponControl.ShootAnimEvent += ShootAnim;
     }
 
     private void OnDisable()
     {
         WeaponControl.ReloadEvent -= ReloadAnim;
-        WeaponControl.ShootEvent -= ShootAnim;
+        WeaponControl.ShootAnimEvent -= ShootAnim;
     }
 
-    private void ShootAnim(bool shoot, float multiplier)
+    private void ShootAnim(GunScriptableObject GunSO)
     {
-        myAnimator.SetBool("Shoot", shoot);
-        myAnimator.SetFloat("RecoilSpeedMultipler", multiplier);
+        myAnimator.SetBool("Shoot", true);
+        myAnimator.SetFloat("RecoilSpeedMultipler", GunSO.SpeedMultiplierRecoilAnimation);
     }
 
     private void ReloadAnim(bool reload)

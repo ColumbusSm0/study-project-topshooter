@@ -1,0 +1,7 @@
+.AmmoTextLabel {
+    -unity-font: url("project://database/Assets/Interface/Fonte.ttf?fileID=12800000&guid=5e742549c657f444c82ecef0e55d17a9&type=3#Fonte");
+    font-size: 46px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 8px;
+    -unity-font-style: bold;
+}

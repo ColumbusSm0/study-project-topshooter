@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="LifeBar" src="project://database/Assets/Scripts/UI/LifeBar.uxml?fileID=9197481963319205126&amp;guid=411515851ea98e942a0a8f8cddc303ec&amp;type=3#LifeBar" />
+    <Style src="project://database/Assets/Scripts/UI/HUDStyle.uss?fileID=7433441132597879392&amp;guid=894a05718266dbc4ab3cc46537ee84d6&amp;type=3#HUDStyle" />
+    <ui:VisualElement name="BaseContainer" style="flex-grow: 1;">
+        <ui:VisualElement name="TopContainer" class="AmmoTextLabel" style="flex-grow: 1; background-color: rgba(233, 14, 14, 0.71); flex-direction: row; position: relative; height: 25%; align-items: center;">
+            <ui:Instance template="LifeBar" name="LifeBar" />
+        </ui:VisualElement>
+        <ui:VisualElement name="GameSafeArea" style="flex-grow: 1; flex-direction: row; position: relative; height: 294%;" />
+        <ui:VisualElement name="BottomContainer" style="flex-grow: 1; flex-direction: row; position: relative; height: 34%; transform-origin: center; padding-right: 0; padding-top: 0; padding-bottom: 0; padding-left: 0; align-self: flex-end; display: flex; visibility: visible; overflow: visible;">
+            <ui:VisualElement name="AmmoHolder" style="flex-grow: 1; background-color: rgba(36, 36, 36, 0.86); width: 0; flex-direction: row; align-items: auto; justify-content: flex-start; align-self: flex-end; margin-left: 0; rotate: -4deg; margin-right: 1510px; transform-origin: center; translate: -10px -19px;">
+                <ui:Label tabindex="-1" text="Ammo:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmoLabel" class="AmmoTextLabel" style="margin-left: 22px;" />
+                <ui:Label tabindex="-1" text="7" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MagazineValue" class="AmmoTextLabel" />
+                <ui:Label tabindex="-1" text="/" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Divider" class="AmmoTextLabel" />
+                <ui:Label tabindex="-1" text="250" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Ammo" class="AmmoTextLabel" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

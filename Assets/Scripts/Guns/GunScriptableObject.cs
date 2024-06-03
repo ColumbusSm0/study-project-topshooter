@@ -8,7 +8,7 @@ using UnityEngine;
 public class GunScriptableObject : ScriptableObject
 {
 
-    public String GunName;
+    public String IconName;
     public GameObject GunPrefab;
     [SerializeField] public GameObject Bullet;
     [SerializeField] public GameObject MuzzleFlashEffect;
@@ -25,9 +25,11 @@ public class GunScriptableObject : ScriptableObject
 
     public int maxAmmo;
 
-    // [Range(0.1f,1.5f)]public float fireRate;
-
     public AudioClip ShootSound;
+
+    public AudioClip ClickSound;
+
+    public AudioClip ReloadSound;
 
     private void OnEnable()
     {

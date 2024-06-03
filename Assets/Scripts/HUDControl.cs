@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class HUDControl : MonoBehaviour
 {
     private PlayerControl scriptPlayerControl;
     public  Slider SliderPlayerLife;
-
+<<<<<<< Updated upstream
+=======
+    public IconDisplayControl IconHolderControl;
     public TextMeshProUGUI MagazineText;
     public TextMeshProUGUI AmmoText;
+>>>>>>> Stashed changes
 
     public GameObject GameOverPanel;
 
@@ -31,18 +33,21 @@ public class HUDControl : MonoBehaviour
         Time.timeScale = 1;
     }
 
+<<<<<<< Updated upstream
+=======
     private void OnEnable()
     {
-        WeaponControl.ShootHUDEvent += UpdateAmmoValues;
-        WeaponControl.ReloadFinishedEvent += UpdateAmmoValues;
+        WeaponControl.ShootHUDEvent += UpdateWeaponValuesAndIcon;
+        WeaponControl.ReloadFinishedEvent += UpdateWeaponValuesAndIcon;
     }
 
     private void OnDisable()
     {
-        WeaponControl.ShootHUDEvent -= UpdateAmmoValues;
-        WeaponControl.ReloadFinishedEvent -= UpdateAmmoValues;
+        WeaponControl.ShootHUDEvent -= UpdateWeaponValuesAndIcon;
+        WeaponControl.ReloadFinishedEvent -= UpdateWeaponValuesAndIcon;
     }
 
+>>>>>>> Stashed changes
     // Update is called once per frame
     void Update()
     {
@@ -57,12 +62,18 @@ public class HUDControl : MonoBehaviour
         timer = 0f; // reset timer.
         
     }
-    public void UpdateAmmoValues(int magazine, int ammo)
+<<<<<<< Updated upstream
+=======
+    public void UpdateWeaponValuesAndIcon(GunScriptableObject gun, int magazine, int ammo)
     {
         Debug.Log("UpdateText");
+
         MagazineText.SetText(magazine.ToString());
         AmmoText.SetText("/ " + ammo.ToString());
+
+        IconHolderControl.ChangeIconDisplayed(gun.IconName);
     }
+>>>>>>> Stashed changes
 
     public void GameOver()
     {

@@ -1,59 +1,61 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
 public class WeaponControl : MonoBehaviour
 {
-    [SerializeField] private GameObject BulletSpawn;
-    public GameObject GunHolder;
-    public GameObject GunInstance;
-    [SerializeField]private VisualEffect InstanceMuzzleFlashEffect;
-    [SerializeField]private Animation InstanceMuzzleLight;
-    public GunScriptableObject GunSO;
+    public GameObject Bullet;
+    public GameObject BulletSpawn;
 
-    [SerializeField] private CharacterAnimationControl AnimControl;
-   
+    public GameObject MuzzleFlashEffect;
+    public Animation MuzzleLight;
 
-    [Header("Ammo and Shooting Stats")]
-    public int CurrentMagazineBullets;
-    public int CurrentAmmo = 100;
-
-    private int bulletsToReload;
-
-    [Header("Sound Config")]
-    public AudioSource WeaponAudioSource;
-    [Range(0.1f, 0.5f)]
+    public AudioClip ShootSound;
+    [Range(0.1f,0.5f)]
     public float pitchMultplier;
+<<<<<<< Updated upstream
+    // Start is called before the first frame update
+=======
+    private bool isReloading;
 
     public GameObject BulletSpawn1 { get => BulletSpawn; set => BulletSpawn = value; }
 
     // [Header("Actions and Events")]
     #region Actions and Events
     public static event Action<bool> ReloadEvent;
-    public static event Action<int,int> ReloadFinishedEvent;
-    public static event Action<int,int> ShootHUDEvent;
+    public static event Action<GunScriptableObject, int,int> ReloadFinishedEvent;
+    public static event Action<GunScriptableObject, int,int> ShootHUDEvent;
     public static event Action<GunScriptableObject> ShootAnimEvent;
 
     #endregion
 
+>>>>>>> Stashed changes
     void Start()
     {
-        GunInstance = UpdateEquippedWeapon(GunSO); 
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if (!GunSO.isAutomatic && Input.GetButtonDown("Fire1") && GunSO.timer > GunSO.DelayBetweenShots)
+        if(Input.GetButtonDown("Fire1"))
         {
-            TryToShoot();
+            Instantiate(Bullet,BulletSpawn.transform.position, BulletSpawn.transform.rotation);
+            AudioControl.SFXInstancia.pitch = Random.Range(1-pitchMultplier,1+pitchMultplier);
+            AudioControl.SFXInstancia.PlayOneShot(ShootSound);
+            MuzzleLight.Play();
+            MuzzleFlashEffect.GetComponent<VisualEffect>().Play();
         }
+<<<<<<< Updated upstream
+=======
 
         if (GunSO.isAutomatic && Input.GetButton("Fire1") && GunSO.timer > GunSO.DelayBetweenShots)
         {
             TryToShoot();
         }
 
-        if ( Input.GetButtonDown("Reload"))
+        if (Input.GetButtonDown("Reload") && !isReloading)
         {
             OnReload();
             Debug.Log("Tried Reload");
@@ -70,26 +72,31 @@ public class WeaponControl : MonoBehaviour
             BulletSpawn = GameObject.FindGameObjectWithTag(Tags.BulletSpawn);
         }
 
-        if (CurrentMagazineBullets > 0)
+        if (!isReloading)
         {
-            GunSO.timer = 0;
-
-            ShootAnimEvent?.Invoke(GunSO);
-            
-            Instantiate(GunSO.Bullet, BulletSpawn1.transform.position, BulletSpawn1.transform.rotation);
-
-            WeaponAudioSource.pitch = UnityEngine.Random.Range(1 - pitchMultplier, 1 + pitchMultplier);
-            WeaponAudioSource.PlayOneShot(GunSO.ShootSound);
-
-            InstanceMuzzleLight.Play();
-            InstanceMuzzleFlashEffect.Play();
-
-            CurrentMagazineBullets -= 1;
-
-            ShootHUDEvent?.Invoke(CurrentMagazineBullets,CurrentAmmo);
-        } else {
-
-            OnReload();
+            if (CurrentMagazineBullets > 0)
+            {
+                GunSO.timer = 0;
+    
+                ShootAnimEvent?.Invoke(GunSO);
+                
+                Instantiate(GunSO.Bullet, BulletSpawn1.transform.position, BulletSpawn1.transform.rotation);
+    
+                WeaponAudioSource.pitch = UnityEngine.Random.Range(1 - pitchMultplier, 1 + pitchMultplier);
+                WeaponAudioSource.PlayOneShot(GunSO.ShootSound);
+    
+                InstanceMuzzleLight.Play();
+                InstanceMuzzleFlashEffect.Play();
+    
+                CurrentMagazineBullets -= 1;
+    
+                ShootHUDEvent?.Invoke(GunSO, CurrentMagazineBullets,CurrentAmmo);
+    
+            } else {
+    
+                WeaponAudioSource.PlayOneShot(GunSO.ClickSound);
+                GunSO.timer = 0;
+            }
         }
         
     }
@@ -98,11 +105,11 @@ public class WeaponControl : MonoBehaviour
     {
         if(CurrentMagazineBullets < GunSO.magazineSize)
         {
-            bulletsToReload = GunSO.magazineSize - CurrentMagazineBullets;
-
-            if(CurrentAmmo >= bulletsToReload)
+            isReloading = true;
+            if(CurrentAmmo > 0)
             {
                 ReloadEvent?.Invoke(true);
+                WeaponAudioSource.PlayOneShot(GunSO.ReloadSound);
                 Debug.Log("Animation Started : Reloaded");
             }
             else
@@ -120,11 +127,12 @@ public class WeaponControl : MonoBehaviour
 
     void CompleteReload ()
     {
-        if(CurrentAmmo > bulletsToReload)
+        bulletsToReload = GunSO.magazineSize - CurrentMagazineBullets;
+
+        if(CurrentAmmo >= bulletsToReload)
             {
                 CurrentMagazineBullets += bulletsToReload;
                 CurrentAmmo -= bulletsToReload;
-
                 Debug.Log("Reloaded");
 
             }
@@ -134,8 +142,8 @@ public class WeaponControl : MonoBehaviour
                 CurrentAmmo = 0;
                 Debug.Log("Reloaded and out of ammo");
             }
-
-            ReloadFinishedEvent?.Invoke(CurrentMagazineBullets, CurrentAmmo);
+            isReloading = false;
+            ReloadFinishedEvent?.Invoke(GunSO, CurrentMagazineBullets, CurrentAmmo);
     }
 
     //Called by Animavion Event inside Reload Animation
@@ -160,7 +168,7 @@ public class WeaponControl : MonoBehaviour
         GameObject GunInstance = Instantiate(newGun.GunPrefab,GunHolder.transform.position,GunHolder.transform.rotation,GunHolder.transform);
         SetGunStats();
         SetGunEffects(GunInstance);
-        ReloadFinishedEvent?.Invoke(CurrentMagazineBullets, CurrentAmmo);
+        ReloadFinishedEvent?.Invoke(GunSO, CurrentMagazineBullets, CurrentAmmo);
         return GunInstance;
         
 
@@ -175,5 +183,6 @@ public class WeaponControl : MonoBehaviour
     {
         InstanceMuzzleFlashEffect = GunInstance.GetComponentInChildren<VisualEffect>();
         InstanceMuzzleLight = GunInstance.GetComponentInChildren<Animation>();
+>>>>>>> Stashed changes
     }
 }

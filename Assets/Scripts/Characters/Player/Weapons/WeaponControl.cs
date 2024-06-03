@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using Random = UnityEngine.Random;
 
 public class WeaponControl : MonoBehaviour
 {
@@ -14,12 +16,16 @@ public class WeaponControl : MonoBehaviour
     public AudioClip ShootSound;
     [Range(0.1f,0.5f)]
     public float pitchMultplier;
-<<<<<<< Updated upstream
-    // Start is called before the first frame update
-=======
+    public int CurrentMagazineBullets;
+    public int CurrentAmmo;
     private bool isReloading;
+    private int bulletsToReload;
+    public AudioSource WeaponAudioSource;
 
-    public GameObject BulletSpawn1 { get => BulletSpawn; set => BulletSpawn = value; }
+    public GunScriptableObject GunSO;
+    private VisualEffect InstanceMuzzleFlashEffect;
+    private Animation InstanceMuzzleLight;
+    private GameObject GunHolder;
 
     // [Header("Actions and Events")]
     #region Actions and Events
@@ -30,7 +36,6 @@ public class WeaponControl : MonoBehaviour
 
     #endregion
 
->>>>>>> Stashed changes
     void Start()
     {
         
@@ -47,8 +52,6 @@ public class WeaponControl : MonoBehaviour
             MuzzleLight.Play();
             MuzzleFlashEffect.GetComponent<VisualEffect>().Play();
         }
-<<<<<<< Updated upstream
-=======
 
         if (GunSO.isAutomatic && Input.GetButton("Fire1") && GunSO.timer > GunSO.DelayBetweenShots)
         {
@@ -80,7 +83,7 @@ public class WeaponControl : MonoBehaviour
     
                 ShootAnimEvent?.Invoke(GunSO);
                 
-                Instantiate(GunSO.Bullet, BulletSpawn1.transform.position, BulletSpawn1.transform.rotation);
+                Instantiate(GunSO.Bullet, BulletSpawn.transform.position, BulletSpawn.transform.rotation);
     
                 WeaponAudioSource.pitch = UnityEngine.Random.Range(1 - pitchMultplier, 1 + pitchMultplier);
                 WeaponAudioSource.PlayOneShot(GunSO.ShootSound);
@@ -183,6 +186,5 @@ public class WeaponControl : MonoBehaviour
     {
         InstanceMuzzleFlashEffect = GunInstance.GetComponentInChildren<VisualEffect>();
         InstanceMuzzleLight = GunInstance.GetComponentInChildren<Animation>();
->>>>>>> Stashed changes
     }
 }

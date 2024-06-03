@@ -1884,8 +1884,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1232263985}
   m_SourcePrefab: {fileID: 100100000, guid: bf4e53320739441f58d231c2ee884b66, type: 3}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &306120273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1951,6 @@ MonoBehaviour:
   - {fileID: 500034440}
   - {fileID: 1500439183}
   currentIcon: {fileID: 500034440}
->>>>>>> Stashed changes
 --- !u!1 &329630677
 GameObject:
   m_ObjectHideFlags: 0
@@ -5739,12 +5736,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SliderPlayerLife: {fileID: 1296342435}
-<<<<<<< Updated upstream
-=======
   IconHolderControl: {fileID: 306120276}
   MagazineText: {fileID: 1199104390}
   AmmoText: {fileID: 512466513}
->>>>>>> Stashed changes
   GameOverPanel: {fileID: 1358384812}
   AnimationSpeedMultiplier: 8
 --- !u!4 &818862132 stripped
@@ -6678,8 +6672,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4600660653577794, guid: fb0717d22731641ffa17f7938709c24a, type: 3}
   m_PrefabInstance: {fileID: 48114792}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &955037864
 GameObject:
   m_ObjectHideFlags: 0
@@ -6756,7 +6748,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955037864}
   m_CullTransparentMesh: 1
->>>>>>> Stashed changes
 --- !u!1001 &957982495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13192,8 +13183,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4e53320739441f58d231c2ee884b66, type: 3}
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &708771008258014440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13375,7 +13364,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8220187700110808571}
   m_SourcePrefab: {fileID: 100100000, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}
->>>>>>> Stashed changes
 --- !u!1001 &882593912727047444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14408,8 +14396,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4514499278929870, guid: e4e0f3cfde2314194a64de87d1b562ac, type: 3}
   m_PrefabInstance: {fileID: 7506538738458235708}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!114 &8220187700110808570 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3999133823435325832, guid: eceaa3105f2651246a46184df7c86e8c, type: 3}
@@ -14517,7 +14503,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
->>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

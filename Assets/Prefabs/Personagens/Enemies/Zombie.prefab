@@ -767,7 +767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   ZombieKill: {fileID: 8300000, guid: 3a9b3b6e045d1dc4e948f8f64cd7cb71, type: 3}
-  ChaseRadius: 15.1
+  ChaseRadius: 16
   myEnemyStats: {fileID: 4343106757162528515}
   CanChase: 1
   ShouldDrawGizmos: 1

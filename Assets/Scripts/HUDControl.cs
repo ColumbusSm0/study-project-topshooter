@@ -61,8 +61,8 @@ public class HUDControl : MonoBehaviour
     {
         Debug.Log("UpdateText");
 
-        // MagazineText.SetText(magazine.ToString());
-        // AmmoText.SetText("/ " + ammo.ToString());
+        MagazineText.SetText(magazine.ToString());
+        AmmoText.SetText("/ " + ammo.ToString());
 
         IconHolderControl.ChangeIconDisplayed(gun.IconName);
     }
